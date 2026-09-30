@@ -1,0 +1,426 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Bebas-R";
+  src: url(../Fonts/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Inter-R";
+  src: url(../Fonts/Inter_18pt-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Inter-SB";
+  src: url(../Fonts/Inter_18pt-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Inter-M";
+  src: url(../Fonts/Inter_18pt-Medium.ttf);
+}
+
+// Backgrounds
+$bg-primary: #121212;
+$bg-secondary: #1c1c1c;
+$bg-card: #242424;
+
+// Brand
+$primary: #e85d3f; // ember orange/red
+$primary-hover: #f06a4b;
+$accent: #f2b84b; // warm gold
+
+// Text
+$text-primary: #f7f3ee;
+$text-secondary: #b8b2ac;
+$text-muted: #77716d;
+
+// Borders
+$border: #333333;
+
+// Utility
+$success: #4caf70;
+$error: #e05252;
+
+body {
+  background-color: $bg-primary;
+  color: $text-primary;
+  font-family: "Inter-R";
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  header {
+    width: 100%;
+    height: 80px;
+    background-color: $bg-primary;
+    border-bottom: 1px solid $border;
+
+    .header__container {
+      max-width: 1250px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .header__logo {
+        font-family: "Bebas-R";
+        font-size: 32px;
+        letter-spacing: 2px;
+
+        span {
+          color: $primary;
+        }
+      }
+
+      .header__nav {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+
+        a {
+          position: relative;
+          font-family: "Inter-M";
+          font-size: 14px;
+          color: $text-secondary;
+          transition: 0.3s;
+
+          &:hover,
+          &.active {
+            color: $text-primary;
+          }
+
+          &.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+
+            width: 100%;
+            height: 2px;
+            background-color: $primary;
+          }
+        }
+      }
+
+      .header__actions {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+
+        .header__icon {
+          background: none;
+          color: $text-primary;
+          font-size: 17px;
+        }
+
+        .header__cart {
+          position: relative;
+          font-size: 17px;
+
+          span {
+            position: absolute;
+            top: -10px;
+            right: -12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+
+            background-color: $primary;
+            font-family: "Inter-SB";
+            font-size: 10px;
+          }
+        }
+
+        .header__login {
+          padding: 10px 20px;
+          background-color: $primary;
+          font-family: "Inter-SB";
+          font-size: 13px;
+          transition: 0.3s;
+
+          &:hover {
+            background-color: $primary-hover;
+          }
+        }
+      }
+    }
+  }
+
+  .hero {
+    min-height: calc(100vh - 80px);
+    background-color: $bg-primary;
+    overflow: hidden;
+
+    .hero__container {
+      max-width: 1250px;
+      min-height: calc(100vh - 80px);
+      margin: 0 auto;
+      padding: 60px 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+
+      .hero__content {
+        max-width: 580px;
+
+        .hero__label {
+          display: inline-block;
+          margin-bottom: 18px;
+
+          font-family: "Inter-SB";
+          font-size: 12px;
+          letter-spacing: 3px;
+          color: $primary;
+        }
+
+        h1 {
+          font-family: "Bebas-R";
+          font-size: clamp(70px, 7vw, 110px);
+          font-weight: 400;
+          line-height: 0.9;
+          letter-spacing: 2px;
+          color: $text-primary;
+
+          span {
+            color: $primary;
+          }
+        }
+
+        p {
+          max-width: 480px;
+          margin-top: 25px;
+
+          font-size: 16px;
+          line-height: 1.7;
+          color: $text-secondary;
+        }
+
+        .hero__actions {
+          margin-top: 35px;
+
+          display: flex;
+          align-items: center;
+          gap: 30px;
+
+          .hero__button {
+            padding: 14px 24px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            background-color: $primary;
+            font-family: "Inter-SB";
+            font-size: 13px;
+
+            transition: 0.3s;
+
+            &:hover {
+              background-color: $primary-hover;
+
+              i {
+                transform: translateX(4px);
+              }
+            }
+
+            i {
+              transition: 0.3s;
+            }
+          }
+
+          .hero__explore {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: "Inter-M";
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: $text-secondary;
+
+            transition: 0.3s;
+
+            &:hover {
+              color: $text-primary;
+            }
+          }
+        }
+      }
+
+      .hero__image {
+        position: relative;
+
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::before {
+          content: "";
+          position: absolute;
+
+          width: 420px;
+          height: 420px;
+          border-radius: 50%;
+
+          background: rgba($primary, 0.15);
+          filter: blur(70px);
+        }
+
+        img {
+          position: relative;
+          z-index: 1;
+
+          width: 100%;
+          max-width: 580px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .categories {
+    padding: 100px 25px;
+    background-color: $bg-secondary;
+
+    .categories__container {
+      max-width: 1250px;
+      margin: 0 auto;
+
+      .categories__heading {
+        text-align: center;
+        margin-bottom: 50px;
+
+        span {
+          font-family: "Inter-SB";
+          font-size: 12px;
+          letter-spacing: 3px;
+          color: $primary;
+        }
+
+        h2 {
+          margin-top: 8px;
+
+          font-family: "Bebas-R";
+          font-size: 52px;
+          font-weight: 400;
+          letter-spacing: 2px;
+          color: $text-primary;
+        }
+
+        p {
+          margin-top: 8px;
+          font-size: 15px;
+          color: $text-secondary;
+        }
+      }
+
+      .categories__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        .category-card {
+          min-height: 190px;
+          padding: 28px;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          background-color: $bg-card;
+          border: 1px solid $border;
+          cursor: pointer;
+
+          transition: 0.3s;
+
+          &:hover {
+            transform: translateY(-6px);
+            border-color: $primary;
+
+            .category-card__icon {
+              background-color: $primary;
+              color: $text-primary;
+            }
+
+            .category-card__explore {
+              color: $primary;
+
+              i {
+                transform: translateX(4px);
+              }
+            }
+          }
+
+          .category-card__icon {
+            width: 55px;
+            height: 55px;
+            margin-bottom: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background-color: rgba($primary, 0.12);
+            color: $primary;
+            font-size: 20px;
+
+            transition: 0.3s;
+          }
+
+          h3 {
+            font-family: "Bebas-R";
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: $text-primary;
+          }
+
+          .category-card__explore {
+            margin-top: 12px;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            font-family: "Inter-SB";
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: $text-muted;
+
+            transition: 0.3s;
+
+            i {
+              transition: 0.3s;
+            }
+          }
+        }
+      }
+    }
+  }
+}

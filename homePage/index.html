@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header__container">
+        <a href="index.html" class="header__logo"> EMBER<span>.</span> </a>
+
+        <nav class="header__nav">
+          <a href="index.html" class="active">HOME</a>
+          <a href="#">MENU</a>
+          <a href="#">ABOUT</a>
+        </nav>
+
+        <div class="header__actions">
+          <button class="header__icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <a href="#" class="header__cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>0</span>
+          </a>
+
+          <a href="#" class="header__login"> LOGIN </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__container">
+          <div class="hero__content">
+            <span class="hero__label">FRESH. HOT. UNFORGETTABLE.</span>
+
+            <h1>
+              FIRE-GRILLED.<br />
+              <span>FULL FLAVOR.</span>
+            </h1>
+
+            <p>
+              Fresh ingredients, bold flavors, and food made exactly the way it
+              should be.
+            </p>
+
+            <div class="hero__actions">
+              <a href="#" class="hero__button">
+                VIEW MENU
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+
+              <a href="#categories" class="hero__explore">
+                EXPLORE
+                <i class="fa-solid fa-arrow-down"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__image">
+            <img
+              src="../Images/ChatGPT Image Sep 30, 2026, 01_07_54 PM.png"
+              alt="Ember grilled burger"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="categories" id="categories">
+        <div class="categories__container">
+          <div class="categories__heading">
+            <span>EXPLORE OUR MENU</span>
+            <h2>CATEGORIES</h2>
+            <p>Find exactly what you're craving.</p>
+          </div>
+
+          <div class="categories__grid"></div>
+        </div>
+      </section>
+
+      <section class="popular">
+        <div class="popular__container">
+          <div class="popular__heading">
+            <div>
+              <span>OUR FAVORITES</span>
+              <h2>POPULAR DISHES</h2>
+            </div>
+
+            <a href="#">
+              VIEW ALL
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="popular__grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
