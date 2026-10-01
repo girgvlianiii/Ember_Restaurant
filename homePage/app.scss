@@ -68,6 +68,13 @@ body {
     background-color: $bg-primary;
     border-bottom: 1px solid $border;
 
+    .header__menu {
+      display: none;
+      background: none;
+      color: $text-primary;
+      font-size: 20px;
+    }
+
     .header__container {
       max-width: 1250px;
       height: 100%;
@@ -340,7 +347,7 @@ body {
 
       .categories__grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 20px;
 
         .category-card {
@@ -419,6 +426,385 @@ body {
               transition: 0.3s;
             }
           }
+        }
+      }
+    }
+  }
+
+  .popular {
+    padding: 100px 25px;
+    background-color: $bg-primary;
+
+    .popular__container {
+      max-width: 1250px;
+      margin: 0 auto;
+
+      .popular__heading {
+        margin-bottom: 45px;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        div {
+          span {
+            font-family: "Inter-SB";
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: $primary;
+          }
+
+          h2 {
+            margin-top: 8px;
+
+            font-family: "Bebas-R";
+            font-size: 52px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: $text-primary;
+          }
+        }
+
+        > a {
+          padding-bottom: 7px;
+
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          font-family: "Inter-SB";
+          font-size: 12px;
+          letter-spacing: 1.5px;
+          color: $text-secondary;
+
+          transition: 0.3s;
+
+          &:hover {
+            color: $primary;
+
+            i {
+              transform: translateX(4px);
+            }
+          }
+
+          i {
+            transition: 0.3s;
+          }
+        }
+      }
+
+      .popular__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px;
+
+        .product-card {
+          overflow: hidden;
+
+          background-color: $bg-card;
+          border: 1px solid $border;
+
+          transition: 0.3s;
+
+          &:hover {
+            transform: translateY(-6px);
+            border-color: $primary;
+
+            .product-card__image {
+              img {
+                transform: scale(1.06);
+              }
+            }
+          }
+
+          .product-card__image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+
+            background-color: $bg-secondary;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+
+              transition: 0.4s;
+            }
+          }
+
+          .product-card__content {
+            padding: 22px;
+
+            h3 {
+              min-height: 52px;
+
+              font-family: "Bebas-R";
+              font-size: 24px;
+              font-weight: 400;
+              line-height: 1.1;
+              letter-spacing: 1px;
+              color: $text-primary;
+            }
+
+            .product-card__bottom {
+              margin-top: 22px;
+
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              .product-card__price {
+                font-family: "Inter-SB";
+                font-size: 18px;
+                color: $primary;
+              }
+
+              .product-card__add {
+                padding: 10px 14px;
+
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                background-color: transparent;
+                border: 1px solid $primary;
+
+                font-family: "Inter-SB";
+                font-size: 11px;
+                letter-spacing: 1px;
+                color: $text-primary;
+
+                transition: 0.3s;
+
+                &:hover {
+                  background-color: $primary;
+
+                  i {
+                    transform: rotate(90deg);
+                  }
+                }
+
+                i {
+                  font-size: 10px;
+                  transition: 0.3s;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .about {
+    padding: 110px 25px;
+    background-color: $bg-secondary;
+
+    .about__container {
+      max-width: 1250px;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      gap: 80px;
+
+      .about__image {
+        width: 52%;
+        height: 520px;
+        overflow: hidden;
+
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+
+          background: linear-gradient(
+            to top,
+            rgba(18, 18, 18, 0.35),
+            transparent 50%
+          );
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          transition: 0.5s;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.04);
+          }
+        }
+      }
+
+      .about__content {
+        width: 48%;
+        max-width: 500px;
+
+        .about__label {
+          font-family: "Inter-SB";
+          font-size: 12px;
+          letter-spacing: 3px;
+          color: $primary;
+        }
+
+        h2 {
+          margin-top: 12px;
+
+          font-family: "Bebas-R";
+          font-size: 64px;
+          font-weight: 400;
+          line-height: 0.95;
+          letter-spacing: 2px;
+          color: $text-primary;
+
+          span {
+            color: $primary;
+          }
+        }
+
+        p {
+          margin-top: 22px;
+
+          font-family: "Inter-R";
+          font-size: 15px;
+          line-height: 1.8;
+          color: $text-secondary;
+        }
+
+        .about__button {
+          width: fit-content;
+          margin-top: 32px;
+          padding: 14px 22px;
+
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          background-color: $primary;
+
+          font-family: "Inter-SB";
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: $text-primary;
+
+          transition: 0.3s;
+
+          &:hover {
+            background-color: $primary-hover;
+
+            i {
+              transform: translateX(4px);
+            }
+          }
+
+          i {
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    padding: 70px 25px 0;
+    background-color: $bg-primary;
+    border-top: 1px solid $border;
+
+    .footer__container {
+      max-width: 1250px;
+      margin: 0 auto;
+
+      .footer__top {
+        padding-bottom: 60px;
+
+        display: grid;
+        grid-template-columns: 2fr 1fr 1.3fr 1fr;
+        gap: 60px;
+
+        .footer__brand {
+          .footer__logo {
+            font-family: "Bebas-R";
+            font-size: 36px;
+            letter-spacing: 2px;
+            color: $text-primary;
+
+            span {
+              color: $primary;
+            }
+          }
+
+          p {
+            margin-top: 18px;
+
+            font-size: 14px;
+            line-height: 1.7;
+            color: $text-secondary;
+          }
+        }
+
+        h3 {
+          margin-bottom: 20px;
+
+          font-family: "Inter-SB";
+          font-size: 12px;
+          letter-spacing: 2px;
+          color: $text-primary;
+        }
+
+        .footer__links,
+        .footer__contact,
+        .footer__socials {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+
+          a,
+          p {
+            font-size: 13px;
+            color: $text-secondary;
+          }
+
+          a {
+            transition: 0.3s;
+
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+
+        .footer__socials {
+          a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            i {
+              width: 16px;
+              color: $primary;
+            }
+          }
+        }
+      }
+
+      .footer__bottom {
+        padding: 22px 0;
+
+        border-top: 1px solid $border;
+
+        p {
+          font-family: "Inter-M";
+          font-size: 10px;
+          letter-spacing: 1.5px;
+          color: $text-muted;
         }
       }
     }

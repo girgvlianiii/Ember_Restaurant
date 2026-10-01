@@ -48,13 +48,49 @@ function renderCategories(categories) {
   });
 }
 
+const popularProducts = document.querySelector(".popular__grid");
+
 fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
   .then((res) => {
     if (!res.ok) {
       throw new Error("Error!");
     }
+
     return res.json();
   })
   .then((data) => {
-    console.log(data);
+    renderProducts(data);
+  })
+  .catch((error) => {
+    console.log(error);
   });
+
+function renderProducts(products) {
+  for (i = 0; i < 4; i++) {
+    console.log(products[i]);
+
+    const card = document.createElement("article");
+    card.classList.add("product-card");
+
+    card.innerHTML = `
+            <div class="product-card__image">
+    <img src="${products[i].image}" alt="${products[i].name}">
+</div>
+
+<div class="product-card__content">
+    <h3>${products[i].name}</h3>
+
+    <div class="product-card__bottom">
+        <span class="product-card__price">${products[i].price}</span>
+
+        <button class="product-card__add">
+            ADD
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+</div>
+        `;
+
+    popularProducts.appendChild(card);
+  }
+}
