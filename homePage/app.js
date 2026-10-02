@@ -66,7 +66,7 @@ fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
   });
 
 function renderProducts(products) {
-  for (i = 0; i < 4; i++) {
+  for (let i = 0; i < 4; i++) {
     console.log(products[i]);
 
     const card = document.createElement("article");
@@ -81,7 +81,7 @@ function renderProducts(products) {
     <h3>${products[i].name}</h3>
 
     <div class="product-card__bottom">
-        <span class="product-card__price">${products[i].price}</span>
+        <span class="product-card__price">${products[i].price.toFixed(2)}$</span>
 
         <button class="product-card__add">
             ADD
@@ -94,3 +94,29 @@ function renderProducts(products) {
     popularProducts.appendChild(card);
   }
 }
+
+const menuButton = document.querySelector(".header__menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+const menuIcon = menuButton.querySelector("i");
+const mobileLinks = document.querySelectorAll(".mobile-menu a");
+
+menuButton.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+
+  if (mobileMenu.classList.contains("active")) {
+    menuIcon.classList.remove("fa-bars");
+    menuIcon.classList.add("fa-xmark");
+  } else {
+    menuIcon.classList.remove("fa-xmark");
+    menuIcon.classList.add("fa-bars");
+  }
+});
+
+mobileLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+
+    menuIcon.classList.remove("fa-xmark");
+    menuIcon.classList.add("fa-bars");
+  });
+});

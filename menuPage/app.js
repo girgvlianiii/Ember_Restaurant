@@ -1,0 +1,104 @@
+const menuButton = document.querySelector(".header__menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+const menuIcon = menuButton.querySelector("i");
+const mobileLinks = document.querySelectorAll(".mobile-menu a");
+
+menuButton.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+
+  if (mobileMenu.classList.contains("active")) {
+    menuIcon.classList.remove("fa-bars");
+    menuIcon.classList.add("fa-xmark");
+  } else {
+    menuIcon.classList.remove("fa-xmark");
+    menuIcon.classList.add("fa-bars");
+  }
+});
+
+mobileLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+
+    menuIcon.classList.remove("fa-xmark");
+    menuIcon.classList.add("fa-bars");
+  });
+});
+
+const filtersContainer = document.querySelector(".menu__filters");
+
+fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error("Error!");
+    }
+    return res.json();
+  })
+  .then((data) => {
+    renderCategories(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+function renderCategories(categories) {
+  const allButton = document.createElement("button");
+
+  allButton.classList.add("menu-filter", "active");
+  allButton.textContent = "ALL";
+  allButton.dataset.categoryId = "all";
+
+  filtersContainer.appendChild(allButton);
+
+  categories.forEach((category) => {
+    const button = document.createElement("button");
+
+    button.classList.add("menu-filter");
+    button.textContent = category.name;
+    button.dataset.categoryId = category.id;
+
+    filtersContainer.appendChild(button);
+  });
+}
+
+const menuGrid = document.querySelector(".menu__grid");
+
+fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error("Error!");
+    }
+    return res.json();
+  })
+  .then((data) => {
+    renderProducts(data);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+function renderProducts(products) {
+  products.forEach((product) => {
+    const productCard = document.createElement("article");
+    productCard.classList.add("product-card")
+
+    productCard.innerHTML = `
+  <div class="product-card__image">
+    <img src="${product.image}" alt="${product.name}" />
+  </div>
+
+  <div class="product-card__content">
+    <h3>${product.name}</h3>
+
+    <div class="product-card__bottom">
+      <span class="product-card__price">${product.price.toFixed(2)}$</span>
+
+      <button class="product-card__add">
+        ADD
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+`;
+    menuGrid.appendChild(productCard);
+  });
+}

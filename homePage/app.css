@@ -34,6 +34,43 @@ body button {
   font-family: inherit;
   cursor: pointer;
 }
+body header .mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  padding: 30px 20px;
+  background-color: #121212;
+  border-bottom: 1px solid #333333;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+body header .mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+body header .mobile-menu .mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+body header .mobile-menu .mobile-menu__nav a {
+  padding: 14px 0;
+  font-family: "Inter-SB";
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #b8b2ac;
+  border-bottom: 1px solid #333333;
+  transition: 0.3s;
+}
+body header .mobile-menu .mobile-menu__nav a:hover, body header .mobile-menu .mobile-menu__nav a.active {
+  color: #e85d3f;
+}
 body header {
   width: 100%;
   height: 80px;
@@ -620,4 +657,469 @@ body .footer .footer__container .footer__bottom p {
   font-size: 10px;
   letter-spacing: 1.5px;
   color: #77716d;
+}
+
+@media (max-width: 1024px) {
+  header .header__container {
+    padding: 0 20px;
+  }
+  header .header__container .header__nav {
+    gap: 22px;
+  }
+  header .header__container .header__actions {
+    gap: 16px;
+  }
+  header .header__container .header__actions .header__login {
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+  .hero .hero__container {
+    padding: 50px 20px;
+    gap: 35px;
+  }
+  .hero .hero__container .hero__content {
+    max-width: 500px;
+  }
+  .hero .hero__container .hero__content h1 {
+    font-size: 64px;
+  }
+  .hero .hero__container .hero__content p {
+    font-size: 15px;
+  }
+  .hero .hero__container .hero__content .hero__actions {
+    gap: 22px;
+  }
+  .hero .hero__container .hero__content .hero__actions .hero__button {
+    padding: 13px 20px;
+    font-size: 12px;
+  }
+  .hero .hero__container .hero__image {
+    width: 45%;
+  }
+  .hero .hero__container .hero__image::before {
+    width: 320px;
+    height: 320px;
+  }
+  .categories .categories__container .categories__heading h2 {
+    font-size: 46px;
+  }
+  .categories .categories__container .categories__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .popular .popular__container .popular__heading div h2 {
+    font-size: 46px;
+  }
+  .popular .popular__container .popular__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .about .about__container {
+    gap: 50px;
+  }
+  .about .about__container .about__content h2 {
+    font-size: 54px;
+  }
+}
+@media (max-width: 768px) {
+  body header {
+    position: relative;
+    z-index: 999;
+    height: 70px;
+  }
+  body header .mobile-menu {
+    display: block;
+  }
+  body header .header__container {
+    padding: 0 18px;
+  }
+  body header .header__container .header__nav {
+    display: none;
+  }
+  body header .header__container .header__actions {
+    gap: 16px;
+  }
+  body header .header__container .header__actions .header__login {
+    display: none;
+  }
+  body header .header__container .header__actions .header__icon,
+  body header .header__container .header__actions .header__cart {
+    font-size: 16px;
+  }
+  body header .header__container .header__menu {
+    display: block;
+    font-size: 20px;
+  }
+  body .hero {
+    min-height: auto;
+  }
+  body .hero .hero__container {
+    min-height: auto;
+    padding: 70px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 45px;
+  }
+  body .hero .hero__container .hero__content {
+    width: 100%;
+    max-width: 600px;
+  }
+  body .hero .hero__container .hero__content .hero__label {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+  body .hero .hero__container .hero__content h1 {
+    font-size: clamp(52px, 10vw, 72px);
+  }
+  body .hero .hero__container .hero__content p {
+    max-width: 520px;
+    font-size: 14px;
+  }
+  body .hero .hero__container .hero__content .hero__actions {
+    margin-top: 28px;
+    gap: 18px;
+  }
+  body .hero .hero__container .hero__content .hero__actions .hero__button {
+    min-height: 44px;
+    padding: 12px 18px;
+    font-size: 11px;
+  }
+  body .hero .hero__container .hero__content .hero__actions .hero__explore {
+    min-height: 44px;
+    font-size: 11px;
+  }
+  body .hero .hero__container .hero__image {
+    width: 100%;
+  }
+  body .hero .hero__container .hero__image img {
+    max-width: 500px;
+  }
+  body .hero .hero__container .hero__image::before {
+    width: 300px;
+    height: 300px;
+  }
+  body .categories {
+    padding: 75px 20px;
+  }
+  body .categories .categories__container .categories__heading {
+    margin-bottom: 38px;
+  }
+  body .categories .categories__container .categories__heading span {
+    font-size: 11px;
+  }
+  body .categories .categories__container .categories__heading h2 {
+    font-size: 42px;
+  }
+  body .categories .categories__container .categories__heading p {
+    font-size: 14px;
+  }
+  body .categories .categories__container .categories__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  body .categories .categories__container .categories__grid .category-card {
+    min-height: 170px;
+    padding: 24px;
+  }
+  body .categories .categories__container .categories__grid .category-card h3 {
+    font-size: 22px;
+  }
+  body .popular {
+    padding: 75px 20px;
+  }
+  body .popular .popular__container .popular__heading {
+    margin-bottom: 35px;
+  }
+  body .popular .popular__container .popular__heading div span {
+    font-size: 11px;
+  }
+  body .popular .popular__container .popular__heading div h2 {
+    font-size: 42px;
+  }
+  body .popular .popular__container .popular__heading > a {
+    font-size: 11px;
+  }
+  body .popular .popular__container .popular__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__image {
+    height: 210px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content {
+    padding: 18px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content h3 {
+    min-height: auto;
+    font-size: 22px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content .product-card__bottom {
+    margin-top: 18px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content .product-card__bottom .product-card__price {
+    font-size: 16px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content .product-card__bottom .product-card__add {
+    min-height: 42px;
+    padding: 9px 13px;
+    font-size: 10px;
+  }
+  body .about {
+    padding: 75px 20px;
+  }
+  body .about .about__container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  body .about .about__container .about__image {
+    width: 100%;
+    height: 420px;
+  }
+  body .about .about__container .about__content {
+    width: 100%;
+    max-width: 600px;
+  }
+  body .about .about__container .about__content .about__label {
+    font-size: 11px;
+  }
+  body .about .about__container .about__content h2 {
+    font-size: 50px;
+  }
+  body .about .about__container .about__content p {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+  body .about .about__container .about__content .about__button {
+    min-height: 44px;
+    padding: 12px 18px;
+    font-size: 11px;
+  }
+  body .footer {
+    padding: 55px 20px 0;
+  }
+  body .footer .footer__container .footer__top {
+    padding-bottom: 45px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  body .footer .footer__container .footer__top .footer__brand .footer__logo {
+    font-size: 32px;
+  }
+  body .footer .footer__container .footer__top .footer__brand p {
+    font-size: 13px;
+  }
+  body .footer .footer__container .footer__top h3 {
+    font-size: 11px;
+  }
+  body .footer .footer__container .footer__top .footer__links a,
+  body .footer .footer__container .footer__top .footer__links p,
+  body .footer .footer__container .footer__top .footer__contact a,
+  body .footer .footer__container .footer__top .footer__contact p,
+  body .footer .footer__container .footer__top .footer__socials a,
+  body .footer .footer__container .footer__top .footer__socials p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 480px) {
+  body .mobile-menu {
+    top: 64px;
+  }
+  body header {
+    height: 64px;
+  }
+  body header .header__container {
+    padding: 0 14px;
+  }
+  body header .header__container .header__logo {
+    font-size: 28px;
+  }
+  body header .header__container .header__actions {
+    gap: 13px;
+  }
+  body header .header__container .header__actions .header__icon,
+  body header .header__container .header__actions .header__cart {
+    font-size: 15px;
+  }
+  body header .header__container .header__actions .header__menu {
+    font-size: 19px;
+  }
+  body .hero .hero__container {
+    padding: 55px 16px;
+    gap: 35px;
+  }
+  body .hero .hero__container .hero__content .hero__label {
+    margin-bottom: 14px;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+  }
+  body .hero .hero__container .hero__content h1 {
+    font-size: clamp(46px, 15vw, 60px);
+    line-height: 0.92;
+  }
+  body .hero .hero__container .hero__content p {
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  body .hero .hero__container .hero__content .hero__actions {
+    margin-top: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  body .hero .hero__container .hero__content .hero__actions .hero__button {
+    padding: 11px 16px;
+    font-size: 10px;
+  }
+  body .hero .hero__container .hero__content .hero__actions .hero__explore {
+    padding: 0 4px;
+    font-size: 10px;
+  }
+  body .hero .hero__container .hero__image img {
+    max-width: 380px;
+  }
+  body .hero .hero__container .hero__image::before {
+    width: 240px;
+    height: 240px;
+  }
+  body .categories {
+    padding: 60px 16px;
+  }
+  body .categories .categories__container .categories__heading {
+    margin-bottom: 30px;
+  }
+  body .categories .categories__container .categories__heading span {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  body .categories .categories__container .categories__heading h2 {
+    font-size: 38px;
+  }
+  body .categories .categories__container .categories__heading p {
+    font-size: 13px;
+  }
+  body .categories .categories__container .categories__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  body .categories .categories__container .categories__grid .category-card {
+    min-height: 150px;
+    padding: 20px;
+  }
+  body .categories .categories__container .categories__grid .category-card .category-card__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+  body .categories .categories__container .categories__grid .category-card h3 {
+    font-size: 21px;
+  }
+  body .categories .categories__container .categories__grid .category-card .category-card__explore {
+    font-size: 9px;
+  }
+  body .popular {
+    padding: 60px 16px;
+  }
+  body .popular .popular__container .popular__heading {
+    margin-bottom: 28px;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  body .popular .popular__container .popular__heading div span {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  body .popular .popular__container .popular__heading div h2 {
+    font-size: 38px;
+  }
+  body .popular .popular__container .popular__heading > a {
+    padding-bottom: 3px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  body .popular .popular__container .popular__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__image {
+    height: 200px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content {
+    padding: 17px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content h3 {
+    font-size: 21px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content .product-card__bottom .product-card__price {
+    font-size: 16px;
+  }
+  body .popular .popular__container .popular__grid .product-card .product-card__content .product-card__bottom .product-card__add {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+  body .about {
+    padding: 60px 16px;
+  }
+  body .about .about__container {
+    gap: 32px;
+  }
+  body .about .about__container .about__image {
+    height: 320px;
+  }
+  body .about .about__container .about__content .about__label {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  body .about .about__container .about__content h2 {
+    font-size: 44px;
+  }
+  body .about .about__container .about__content p {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  body .about .about__container .about__content .about__button {
+    margin-top: 26px;
+    padding: 11px 16px;
+    font-size: 10px;
+  }
+  body .footer {
+    padding: 45px 16px 0;
+  }
+  body .footer .footer__container .footer__top {
+    padding-bottom: 35px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  body .footer .footer__container .footer__top .footer__brand .footer__logo {
+    font-size: 30px;
+  }
+  body .footer .footer__container .footer__top .footer__brand p {
+    margin-top: 14px;
+    font-size: 12px;
+  }
+  body .footer .footer__container .footer__top h3 {
+    margin-bottom: 14px;
+    font-size: 10px;
+  }
+  body .footer .footer__container .footer__top .footer__links,
+  body .footer .footer__container .footer__top .footer__contact,
+  body .footer .footer__container .footer__top .footer__socials {
+    gap: 10px;
+  }
+  body .footer .footer__container .footer__top .footer__links a,
+  body .footer .footer__container .footer__top .footer__links p,
+  body .footer .footer__container .footer__top .footer__contact a,
+  body .footer .footer__container .footer__top .footer__contact p,
+  body .footer .footer__container .footer__top .footer__socials a,
+  body .footer .footer__container .footer__top .footer__socials p {
+    font-size: 12px;
+  }
+  body .footer .footer__container .footer__bottom {
+    padding: 18px 0;
+  }
+  body .footer .footer__container .footer__bottom p {
+    font-size: 9px;
+    line-height: 1.6;
+  }
 }/*# sourceMappingURL=app.css.map */
