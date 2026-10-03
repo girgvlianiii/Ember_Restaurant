@@ -224,7 +224,7 @@ body .menu .menu__container .menu__filters button:hover, body .menu .menu__conta
 }
 body .menu .menu__container .menu__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 22px;
 }
 body .menu .menu__container .menu__grid .product-card {

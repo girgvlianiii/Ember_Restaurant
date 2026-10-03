@@ -62,24 +62,10 @@ function renderCategories(categories) {
 
 const menuGrid = document.querySelector(".menu__grid");
 
-fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error("Error!");
-    }
-    return res.json();
-  })
-  .then((data) => {
-    renderProducts(data);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
-
 function renderProducts(products) {
   products.forEach((product) => {
     const productCard = document.createElement("article");
-    productCard.classList.add("product-card")
+    productCard.classList.add("product-card");
 
     productCard.innerHTML = `
   <div class="product-card__image">
@@ -102,3 +88,63 @@ function renderProducts(products) {
     menuGrid.appendChild(productCard);
   });
 }
+
+function getProductsByCategory(categoryId) {
+  fetch(
+    `https://restaurant.stepprojects.ge/api/Products/GetFiltered?categoryId=${categoryId}`,
+  )
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Error!");
+      }
+
+      return res.json();
+    })
+    .then((data) => {
+      menuGrid.innerHTML = "";
+      renderProducts(data);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+filtersContainer.addEventListener("click", (e) => {
+  const button = e.target.closest(".menu-filter");
+
+  if (!button) return;
+
+  document.querySelectorAll(".menu-filter").forEach((btn) => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  const categoryId = button.dataset.categoryId;
+
+  if (categoryId === "all") {
+    renderEveryProduct();
+    return;
+  }
+
+  getProductsByCategory(categoryId);
+});
+
+function renderEveryProduct() {
+  fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Error!");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      menuGrid.innerHTML = "";
+      renderProducts(data);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+renderEveryProduct();
