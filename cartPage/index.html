@@ -17,8 +17,8 @@
 
         <nav class="header__nav">
           <a href="../index.html">HOME</a>
-          <a href="./index.html"  class="active">MENU</a>
-          <a href="../aboutPage/index.html">ABOUT</a>
+          <a href="../menuPage/index.html">MENU</a>
+          <a href="../aboutPage/index.html" class="active">ABOUT</a>
         </nav>
 
         <div class="header__actions">
@@ -26,7 +26,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
 
-          <a href="../cartPage/index.html" class="header__cart">
+          <a href="./index.html" class="header__cart">
             <i class="fa-solid fa-cart-shopping"></i>
             <span>0</span>
           </a>
@@ -40,27 +40,49 @@
       <div class="mobile-menu">
         <nav class="mobile-menu__nav">
           <a href="../index.html">HOME</a>
-          <a href="./index.html" class="active">MENU</a>
-          <a href="../aboutPage/index.html">ABOUT</a>
+          <a href="../menuPage/index.html">MENU</a>
+          <a href="../aboutPage/index.html">ABOUT </a>
           <a href="#">LOGIN</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <section class="menu-hero">
-        <div class="menu-hero__container">
-          <span>FRESH FROM THE GRILL</span>
-          <h1>OUR MENU</h1>
-          <p>Explore our dishes and find your next favorite.</p>
+      <section class="cart-hero">
+        <div class="cart-hero__container">
+          <span>YOUR ORDER</span>
+          <h1>YOUR CART</h1>
+          <p>Review your items before checkout.</p>
         </div>
       </section>
 
-      <section class="menu">
-        <div class="menu__container">
-          <div class="menu__filters"></div>
+      <section class="cart">
+        <div class="cart__container">
+          <div class="cart__items"></div>
 
-          <div class="menu__grid"></div>
+          <aside class="cart-summary">
+            <h2>ORDER SUMMARY</h2>
+
+            <div class="cart-summary__row">
+              <span>Subtotal</span>
+              <span class="cart-summary__subtotal">$0.00</span>
+            </div>
+
+            <div class="cart-summary__row">
+              <span>Delivery</span>
+              <span>$0.00</span>
+            </div>
+
+            <div class="cart-summary__total">
+              <span>Total</span>
+              <span class="cart-summary__total-price">$0.00</span>
+            </div>
+
+            <button class="cart-summary__checkout">
+              CHECKOUT
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </aside>
         </div>
       </section>
     </main>
@@ -69,7 +91,9 @@
       <div class="footer__container">
         <div class="footer__top">
           <div class="footer__brand">
-            <a href="../index.html" class="footer__logo"> EMBER<span>.</span> </a>
+            <a href="../index.html" class="footer__logo">
+              EMBER<span>.</span>
+            </a>
 
             <p>
               Fire-grilled food.<br />
@@ -81,7 +105,7 @@
             <h3>QUICK LINKS</h3>
 
             <a href="../index.html">Home</a>
-            <a href="./index.html">Menu</a>
+            <a href="../menuPage/index.html">Menu</a>
             <a href="../aboutPage/index.html">About</a>
           </div>
 
