@@ -32,6 +32,7 @@ EMBER is a frontend project focused on clean UI, responsive design, API integrat
 - Menu
 - About
 - Cart
+- Login
 
 ## 🚀 Current Progress
 
@@ -43,6 +44,8 @@ EMBER is a frontend project focused on clean UI, responsive design, API integrat
 - [x] Add/remove/update cart items
 - [x] Cart totals
 - [x] Responsive layout
+- [ ] Login page
+- [ ] Authentication integration
 - [ ] Final polishing
 - [ ] Deployment
 
