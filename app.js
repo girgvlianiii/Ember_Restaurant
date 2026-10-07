@@ -120,3 +120,28 @@ mobileLinks.forEach((link) => {
     menuIcon.classList.add("fa-bars");
   });
 });
+
+function updateCartCount() {
+  const cartCount = document.querySelector(".header__cart-count");
+
+  if (!cartCount) {
+    return;
+  }
+
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+    .then((res) => res.json())
+    .then((data) => {
+      let totalQuantity = 0;
+
+      data.forEach((item) => {
+        totalQuantity += item.quantity;
+      });
+
+      cartCount.textContent = totalQuantity;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+updateCartCount();

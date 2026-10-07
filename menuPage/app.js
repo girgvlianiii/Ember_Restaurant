@@ -78,7 +78,7 @@ function renderProducts(products) {
     <div class="product-card__bottom">
       <span class="product-card__price">${product.price.toFixed(2)}$</span>
 
-      <button class="product-card__add">
+      <button class="product-card__add" data-id="${product.id}" data-price="${product.price}">
         ADD
         <i class="fa-solid fa-plus"></i>
       </button>
@@ -148,3 +148,86 @@ function renderEveryProduct() {
 }
 
 renderEveryProduct();
+
+menuGrid.addEventListener("click", (e) => {
+  const addButton = e.target.closest(".product-card__add");
+
+  if (!addButton) return;
+
+  const productId = Number(addButton.dataset.id);
+  const productPrice = Number(addButton.dataset.price);
+
+  addToCart(productId, productPrice);
+});
+
+function addToCart(productId, productPrice) {
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Error!");
+      }
+      return res.json();
+    })
+    .then((basket) => {
+      const existingProduct = basket.find(
+        (item) => item.product.id === productId,
+      );
+
+      if (existingProduct) {
+        fetch("https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket", {
+          method: "PUT",
+          headers: {
+            accept: "*/*",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            quantity: existingProduct.quantity + 1,
+            price: existingProduct.product.price,
+            productId: productId,
+          }),
+        });
+      } else {
+        fetch("https://restaurant.stepprojects.ge/api/Baskets/AddToBasket", {
+          method: "POST",
+          headers: {
+            accept: "text/plain",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            quantity: 1,
+            price: productPrice,
+            productId: productId,
+          }),
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+
+function updateCartCount() {
+  const cartCount = document.querySelector(".header__cart-count");
+
+  if (!cartCount) {
+    return;
+  }
+
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+    .then((res) => res.json())
+    .then((data) => {
+      let totalQuantity = 0;
+
+      data.forEach((item) => {
+        totalQuantity += item.quantity;
+      });
+
+      cartCount.textContent = totalQuantity;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+updateCartCount();
