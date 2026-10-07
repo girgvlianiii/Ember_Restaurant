@@ -1,3 +1,218 @@
+.profile-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.profile-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+}
+.profile-modal__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 35px;
+  border: 1px solid #2f2f2f;
+  border-radius: 18px;
+  background-color: #1c1c1c;
+  text-align: center;
+}
+.profile-modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: #242424;
+  color: #b8b2ac;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.profile-modal__close:hover {
+  background-color: #e85d3f;
+  color: #f7f3ee;
+}
+.profile-modal__avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #e85d3f;
+  border-radius: 50%;
+  background-color: #242424;
+  overflow: hidden;
+}
+.profile-modal__avatar i {
+  color: #77716d;
+  font-size: 38px;
+}
+.profile-modal__avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.profile-modal__name {
+  margin-bottom: 6px;
+  color: #f7f3ee;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+.profile-modal__email {
+  margin-bottom: 30px;
+  color: #b8b2ac;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+.profile-modal__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.profile-modal__actions button {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #242424;
+  color: #f7f3ee;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.profile-modal__actions button:hover {
+  border-color: #e85d3f;
+  background-color: #2a2a2a;
+}
+.profile-modal__actions .profile-logout {
+  border-color: #e85d3f;
+  color: #e85d3f;
+}
+.profile-modal__actions .profile-logout:hover {
+  background-color: #e85d3f;
+  color: #f7f3ee;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .profile-modal__content {
+    padding: 35px 22px;
+  }
+  .profile-modal__avatar {
+    width: 90px;
+    height: 90px;
+  }
+  .profile-modal__name {
+    font-size: 32px;
+  }
+}
+.logout-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.logout-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(7px);
+}
+.logout-modal__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 380px;
+  padding: 35px;
+  border: 1px solid #333;
+  border-radius: 18px;
+  background-color: #1c1c1c;
+  text-align: center;
+}
+.logout-modal__content h2 {
+  margin: 18px 0 8px;
+  color: #f7f3ee;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+.logout-modal__content p {
+  margin-bottom: 28px;
+  color: #b8b2ac;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.logout-modal__icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(232, 93, 63, 0.12);
+  color: #e85d3f;
+  font-size: 24px;
+}
+.logout-modal__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.logout-modal__actions button {
+  height: 46px;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.logout-modal__actions .logout-cancel {
+  border: 1px solid #333;
+  background-color: #242424;
+  color: #f7f3ee;
+}
+.logout-modal__actions .logout-cancel:hover {
+  background-color: #2d2d2d;
+}
+.logout-modal__actions .logout-confirm {
+  border: 1px solid #e85d3f;
+  background-color: #e85d3f;
+  color: #f7f3ee;
+}
+.logout-modal__actions .logout-confirm:hover {
+  background-color: #f06a4b;
+}
+
+.logout-modal.hidden {
+  display: none;
+}
+
 * {
   padding: 0;
   margin: 0;

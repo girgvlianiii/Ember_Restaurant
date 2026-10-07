@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header__container">
+        <a href="../index.html" class="header__logo"> EMBER<span>.</span> </a>
+
+        <nav class="header__nav">
+          <a href="../index.html">HOME</a>
+          <a href="../menuPage/index.html">MENU</a>
+          <a href="../aboutPage/index.html" class="active">ABOUT</a>
+        </nav>
+
+        <div class="header__actions">
+          <button class="header__icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <a href="../cartPage/index.html" class="header__cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="header__cart-count"></span>
+          </a>
+
+          <a href="./index.html" class="header__login"> LOGIN </a>
+          <button class="header__menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-menu">
+        <nav class="mobile-menu__nav">
+          <a href="../index.html">HOME</a>
+          <a href="../menuPage/index.html">MENU</a>
+          <a href="../aboutPage/index.html">ABOUT </a>
+          <a href="./index.html" class="active" class="header__login">LOGIN</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="auth">
+        <div class="auth__container">
+          <div class="auth__image">
+            <img
+              src="../Images/Fiery Gourmet Burger Feast.png"
+              alt="Ember restaurant food"
+            />
+
+            <div class="auth__overlay"></div>
+
+            <div class="auth__image-content">
+              <span>EMBER.</span>
+              <h2>TASTE SOMETHING UNFORGETTABLE.</h2>
+              <p>
+                Create an account, explore the menu and order your favorite
+                dishes.
+              </p>
+            </div>
+          </div>
+
+          <div class="auth__content">
+            <div class="auth__form auth__form--login">
+              <div class="auth__heading">
+                <span>WELCOME BACK</span>
+                <h1>LOGIN</h1>
+                <p>Sign in to continue ordering.</p>
+              </div>
+
+              <form class="login-form">
+                <div class="form-group">
+                  <label for="login-email">Email</label>
+
+                  <input
+                    type="email"
+                    id="login-email"
+                    placeholder="example@email.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="login-password">Password</label>
+
+                  <div class="form-group__password">
+                    <input
+                      type="password"
+                      id="login-password"
+                      placeholder="Enter your password"
+                      autocomplete="current-password"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      aria-label="Show password"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <button type="submit" class="auth__submit">LOGIN</button>
+
+                <p class="auth__switch">
+                  Don't have an account?
+
+                  <button type="button" class="show-register">
+                    CREATE ACCOUNT
+                  </button>
+                </p>
+              </form>
+            </div>
+
+            <div class="auth__form auth__form--register hidden">
+              <div class="auth__heading">
+                <span>JOIN EMBER</span>
+                <h1>CREATE ACCOUNT</h1>
+                <p>Fill in your information to create your Ember account.</p>
+              </div>
+
+              <form class="register-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">First Name</label>
+
+                    <input
+                      type="text"
+                      id="first-name"
+                      placeholder="John"
+                      autocomplete="given-name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="last-name">Last Name</label>
+
+                    <input
+                      type="text"
+                      id="last-name"
+                      placeholder="Doe"
+                      autocomplete="family-name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="age">Age</label>
+
+                    <input
+                      type="number"
+                      id="age"
+                      placeholder="Age"
+                      required
+                      min="1"
+                      max="120"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="gender">Gender</label>
+
+                    <select id="gender" required>
+                      <option value="" selected disabled>Select gender</option>
+                      <option value="MALE">Male</option>
+                      <option value="FEMALE">Female</option>
+                      <option value="OTHER">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="register-email">Email</label>
+
+                  <input
+                    type="email"
+                    id="register-email"
+                    placeholder="example@email.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="register-password">Password</label>
+
+                  <div class="form-group__password">
+                    <input
+                      type="password"
+                      id="register-password"
+                      placeholder="Create a password"
+                      autocomplete="new-password"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      class="password-toggle"
+                      aria-label="Show password"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="address">Address</label>
+
+                  <input
+                    type="text"
+                    id="address"
+                    placeholder="Your address"
+                    autocomplete="street-address"
+                    required
+                  />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="phone">Phone</label>
+
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="+995..."
+                      autocomplete="tel"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="zipcode">Zip Code</label>
+
+                    <input
+                      type="text"
+                      id="zipcode"
+                      placeholder="0178"
+                      autocomplete="postal-code"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="avatar">Avatar URL</label>
+
+                  <input
+                    type="url"
+                    id="avatar"
+                    placeholder="https://example.com/avatar.png"
+                    required
+                  />
+
+                  <span class="form-group__hint">
+                    Enter a URL to your profile image.
+                  </span>
+                </div>
+
+                <button type="submit" class="auth__submit">
+                  CREATE ACCOUNT
+                </button>
+
+                <p class="auth__switch">
+                  Already have an account?
+
+                  <button type="button" class="show-login">LOGIN</button>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a href="../index.html" class="footer__logo">
+              EMBER<span>.</span>
+            </a>
+
+            <p>
+              Fire-grilled food.<br />
+              Bold flavor.
+            </p>
+          </div>
+
+          <div class="footer__links">
+            <h3>QUICK LINKS</h3>
+
+            <a href="../index.html">Home</a>
+            <a href="../menuPage/index.html">Menu</a>
+            <a href="../aboutPage/index.html">About</a>
+          </div>
+
+          <div class="footer__contact">
+            <h3>CONTACT</h3>
+
+            <p>Tbilisi, Georgia</p>
+            <p>+995 555 00 00 00</p>
+            <p>hello@ember.ge</p>
+          </div>
+
+          <div class="footer__socials">
+            <h3>FOLLOW US</h3>
+
+            <a href="#">
+              <i class="fa-brands fa-instagram"></i>
+              Instagram
+            </a>
+
+            <a href="#">
+              <i class="fa-brands fa-facebook-f"></i>
+              Facebook
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p>© 2026 EMBER. ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

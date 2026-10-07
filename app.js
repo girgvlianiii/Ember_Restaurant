@@ -1,20 +1,5 @@
 const categoriesGrid = document.querySelector(".categories__grid");
 
-fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error("Error!");
-    }
-
-    return res.json();
-  })
-  .then((data) => {
-    renderCategories(data);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-
 const categoryIcons = {
   Salads: "fa-solid fa-leaf",
   Soups: "fa-solid fa-bowl-food",
@@ -26,34 +11,52 @@ const categoryIcons = {
   "On-The-Side": "fa-solid fa-bowl-rice",
 };
 
+fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error("Failed to get categories");
+    }
+
+    return res.json();
+  })
+  .then((data) => {
+    renderCategories(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
 function renderCategories(categories) {
   categories.forEach((category) => {
     const card = document.createElement("article");
+
     card.classList.add("category-card");
 
     card.innerHTML = `
-            <div class="category-card__icon">
-                <i class="${categoryIcons[category.name]}"></i>
-            </div>
+      <div class="category-card__icon">
+        <i class="${categoryIcons[category.name]}"></i>
+      </div>
 
-            <h3>${category.name}</h3>
+      <h3>${category.name}</h3>
 
-            <span class="category-card__explore">
-                EXPLORE
-                <i class="fa-solid fa-arrow-right"></i>
-            </span>
-        `;
+      <span class="category-card__explore">
+        EXPLORE
+        <i class="fa-solid fa-arrow-right"></i>
+      </span>
+    `;
 
     categoriesGrid.appendChild(card);
   });
 }
+
+// POPULAR PRODUCTS
 
 const popularProducts = document.querySelector(".popular__grid");
 
 fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
   .then((res) => {
     if (!res.ok) {
-      throw new Error("Error!");
+      throw new Error("Failed to get products");
     }
 
     return res.json();
@@ -66,38 +69,44 @@ fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
   });
 
 function renderProducts(products) {
-  for (let i = 0; i < 4; i++) {
-    console.log(products[i]);
+  const firstFourProducts = products.slice(0, 4);
 
+  firstFourProducts.forEach((product) => {
     const card = document.createElement("article");
+
     card.classList.add("product-card");
 
     card.innerHTML = `
-            <div class="product-card__image">
-    <img src="${products[i].image}" alt="${products[i].name}">
-</div>
+      <div class="product-card__image">
+        <img src="${product.image}" alt="${product.name}">
+      </div>
 
-<div class="product-card__content">
-    <h3>${products[i].name}</h3>
+      <div class="product-card__content">
+        <h3>${product.name}</h3>
 
-    <div class="product-card__bottom">
-        <span class="product-card__price">${products[i].price.toFixed(2)}$</span>
+        <div class="product-card__bottom">
+          <span class="product-card__price">
+            ${product.price.toFixed(2)}$
+          </span>
 
-        <button class="product-card__add">
+          <button class="product-card__add">
             ADD
             <i class="fa-solid fa-plus"></i>
-        </button>
-    </div>
-</div>
-        `;
+          </button>
+        </div>
+      </div>
+    `;
 
     popularProducts.appendChild(card);
-  }
+  });
 }
+
+// MOBILE MENU
 
 const menuButton = document.querySelector(".header__menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuIcon = menuButton.querySelector("i");
+
 const mobileLinks = document.querySelectorAll(".mobile-menu a");
 
 menuButton.addEventListener("click", () => {
@@ -121,6 +130,8 @@ mobileLinks.forEach((link) => {
   });
 });
 
+// CART COUNT
+
 function updateCartCount() {
   const cartCount = document.querySelector(".header__cart-count");
 
@@ -129,7 +140,13 @@ function updateCartCount() {
   }
 
   fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to get basket");
+      }
+
+      return res.json();
+    })
     .then((data) => {
       let totalQuantity = 0;
 
@@ -139,8 +156,8 @@ function updateCartCount() {
 
       cartCount.textContent = totalQuantity;
     })
-    .catch((err) => {
-      console.log(err.message);
+    .catch((error) => {
+      console.log(error);
     });
 }
 

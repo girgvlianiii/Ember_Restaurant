@@ -231,3 +231,13 @@ function updateCartCount() {
 }
 
 updateCartCount();
+
+
+const loginButtons = document.querySelectorAll(".header__login");
+const accessToken = localStorage.getItem("accessToken");
+
+if (accessToken) {
+  loginButtons.forEach((button) => {
+    button.textContent = "LOGOUT";
+  });
+}
