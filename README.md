@@ -48,7 +48,7 @@
 
 ## 🌐 Live Demo
 
-Coming soon!
+https://graceful-kashata-2b6a9b.netlify.app/
 
 ## 🔗 API
 
