@@ -3,8 +3,6 @@
     const accessToken = localStorage.getItem("accessToken");
     const profileButtons = document.querySelectorAll(".header__login");
 
-    // CREATE MODALS
-
     document.body.insertAdjacentHTML(
       "beforeend",
       `
@@ -72,8 +70,6 @@
       `,
     );
 
-    // SELECT MODAL ELEMENTS
-
     const profileModal = document.querySelector(".profile-modal");
     const profileClose = document.querySelector(".profile-modal__close");
     const profileOverlay = document.querySelector(".profile-modal__overlay");
@@ -94,8 +90,6 @@
 
     const logoutCancel = document.querySelector(".logout-cancel");
     const logoutConfirm = document.querySelector(".logout-confirm");
-
-    // LOGGED-IN USER
 
     if (accessToken) {
       profileButtons.forEach((button) => {
@@ -131,8 +125,6 @@
         });
     }
 
-    // OPEN PROFILE
-
     profileButtons.forEach((button) => {
       button.addEventListener("click", (e) => {
         const token = localStorage.getItem("accessToken");
@@ -147,8 +139,6 @@
       });
     });
 
-    // CLOSE PROFILE
-
     profileClose.addEventListener("click", () => {
       profileModal.classList.add("hidden");
     });
@@ -157,14 +147,10 @@
       profileModal.classList.add("hidden");
     });
 
-    // OPEN LOGOUT MODAL
-
     profileLogout.addEventListener("click", () => {
       profileModal.classList.add("hidden");
       logoutModal.classList.remove("hidden");
     });
-
-    // CANCEL LOGOUT
 
     logoutCancel.addEventListener("click", () => {
       logoutModal.classList.add("hidden");
@@ -173,8 +159,6 @@
     logoutOverlay.addEventListener("click", () => {
       logoutModal.classList.add("hidden");
     });
-
-    // CONFIRM LOGOUT
 
     logoutConfirm.addEventListener("click", () => {
       localStorage.removeItem("accessToken");

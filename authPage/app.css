@@ -212,13 +212,14 @@ body .auth__image-content span {
   letter-spacing: 3px;
 }
 body .auth__image-content h2 {
-  max-width: 480px;
+  max-width: 100%;
   margin: 12px 0;
   color: #f7f3ee;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(42px, 5vw, 68px);
+  font-family: "Bebas-R";
+  font-size: clamp(36px, 3.5vw, 58px);
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 1;
+  overflow-wrap: break-word;
 }
 body .auth__image-content p {
   max-width: 430px;
@@ -400,43 +401,88 @@ body .password-toggle:hover {
 body .hidden {
   display: none;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+  body .auth {
+    padding: 40px 20px;
+  }
   body .auth__container {
     grid-template-columns: 1fr;
+    min-height: 0;
+    max-width: 750px;
   }
   body .auth__image {
-    min-height: 380px;
+    min-height: 260px;
   }
   body .auth__content {
-    padding: 55px 40px;
+    padding: 45px 40px;
+  }
+  body .footer .footer__container .footer__top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  body header .header__container .header__nav {
+    display: none;
+  }
+  body header .header__container .header__actions > .header__login {
+    display: none;
+  }
+  body header .header__menu {
+    display: block;
+  }
+  body header .mobile-menu {
+    display: block;
+  }
   body .auth {
-    padding: 20px 15px;
+    padding: 35px 20px;
   }
   body .auth__container {
-    border-radius: 14px;
+    max-width: 550px;
   }
   body .auth__image {
-    min-height: 280px;
-  }
-  body .auth__image-content {
-    left: 25px;
-    right: 25px;
-    bottom: 25px;
-  }
-  body .auth__image-content h2 {
-    font-size: 42px;
+    display: none;
   }
   body .auth__content {
-    padding: 40px 22px;
+    padding: 45px 35px;
   }
   body .auth__heading h1 {
-    font-size: 46px;
+    font-size: 48px;
+  }
+}
+@media (max-width: 480px) {
+  body .auth {
+    padding: 20px 12px;
+  }
+  body .auth__container {
+    border-radius: 12px;
+  }
+  body .auth__content {
+    padding: 35px 20px;
+  }
+  body .auth__heading {
+    margin-bottom: 25px;
+  }
+  body .auth__heading h1 {
+    font-size: 42px;
+  }
+  body .auth__submit {
+    height: 48px;
   }
   body .form-row {
     grid-template-columns: 1fr;
+  }
+  body .login-form,
+  body .register-form {
+    gap: 15px;
+  }
+  body .footer {
+    padding: 45px 20px 0;
+  }
+  body .footer .footer__container .footer__top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-bottom: 35px;
   }
 }
 body .footer {
@@ -521,4 +567,88 @@ body .footer .footer__container .footer__bottom p {
   font-size: 10px;
   letter-spacing: 1.5px;
   color: #77716d;
+}
+@media (max-width: 1024px) {
+  body .auth {
+    padding: 40px 20px;
+  }
+  body .auth__container {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    max-width: 750px;
+  }
+  body .auth__image {
+    min-height: 260px;
+  }
+  body .auth__content {
+    padding: 45px 40px;
+  }
+  body .footer .footer__container .footer__top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  body header .header__container .header__nav {
+    display: none;
+  }
+  body header .header__container .header__actions > .header__login {
+    display: none;
+  }
+  body header .header__menu {
+    display: block;
+  }
+  body header .mobile-menu {
+    display: block;
+  }
+  body .auth {
+    padding: 35px 20px;
+  }
+  body .auth__container {
+    max-width: 550px;
+  }
+  body .auth__image {
+    display: none;
+  }
+  body .auth__content {
+    padding: 45px 35px;
+  }
+  body .auth__heading h1 {
+    font-size: 48px;
+  }
+}
+@media (max-width: 480px) {
+  body .auth {
+    padding: 20px 12px;
+  }
+  body .auth__container {
+    border-radius: 12px;
+  }
+  body .auth__content {
+    padding: 35px 20px;
+  }
+  body .auth__heading {
+    margin-bottom: 25px;
+  }
+  body .auth__heading h1 {
+    font-size: 42px;
+  }
+  body .auth__submit {
+    height: 48px;
+  }
+  body .form-row {
+    grid-template-columns: 1fr;
+  }
+  body .login-form,
+  body .register-form {
+    gap: 15px;
+  }
+  body .footer {
+    padding: 45px 20px 0;
+  }
+  body .footer .footer__container .footer__top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-bottom: 35px;
+  }
 }/*# sourceMappingURL=app.css.map */

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu</title>
+    <title>Menu | Ember</title>
+    <link rel="icon" type="image/png" href="../Images/Ember Flame E Emblem.png" />
     <link rel="stylesheet" href="./app.css" />
     <link
       rel="stylesheet"
@@ -22,7 +23,13 @@
         </nav>
 
         <div class="header__actions">
-          <button class="header__icon">
+          <button
+            type="button"
+            class="header__icon header__search-btn"
+            aria-label="Toggle search"
+            aria-expanded="false"
+            aria-controls="menu-search"
+          >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
 
@@ -32,11 +39,22 @@
           </a>
 
           <a href="../authPage/index.html" class="header__login"> LOGIN </a>
-          <button class="header__menu">
+
+          <button class="header__menu" type="button" aria-label="Toggle menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
       </div>
+
+      <div class="header__search" id="menu-search">
+        <input
+          type="search"
+          placeholder="Search for dishes..."
+          aria-label="Search dishes"
+        />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
       <div class="mobile-menu">
         <nav class="mobile-menu__nav">
           <a href="../index.html">HOME</a>
@@ -116,7 +134,9 @@
       </div>
     </footer>
 
-        <script src="../js/profile.js"></script>
+    <div class="toast-container"></div>
+
+    <script src="../js/profile.js"></script>
 
     <script src="./app.js"></script>
   </body>

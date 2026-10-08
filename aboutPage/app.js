@@ -48,3 +48,11 @@ function updateCartCount() {
 }
 
 updateCartCount();
+
+
+
+const searchButton = document.querySelector(".header__icon");
+
+searchButton.addEventListener("click", () => {
+  window.location.href = "../menuPage/index.html";
+});

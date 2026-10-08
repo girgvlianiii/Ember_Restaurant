@@ -249,6 +249,48 @@ body button {
   font-family: inherit;
   cursor: pointer;
 }
+body header {
+  position: relative;
+}
+body header .header__search {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: #1c1c1c;
+  border-bottom: 1px solid #333333;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px);
+  transition: 0.3s ease;
+}
+body header .header__search.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+body header .header__search input {
+  width: 100%;
+  padding: 12px 16px;
+  background: #1c1c1c;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  outline: none;
+  color: #f7f3ee;
+  font-family: "Inter-R";
+}
+body header .header__search input:focus {
+  border-color: #e85d3f;
+}
+body header .header__search i {
+  color: #e85d3f;
+  font-size: 20px;
+}
 body header .mobile-menu {
   display: none;
   position: fixed;
@@ -596,6 +638,74 @@ body .footer .footer__container .footer__bottom p {
   font-size: 10px;
   letter-spacing: 1.5px;
   color: #77716d;
+}
+body .toast-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+body .toast {
+  position: relative;
+  overflow: hidden;
+  min-width: 240px;
+  max-width: 320px;
+  padding: 16px 24px;
+  background: #242424;
+  color: #f7f3ee;
+  border: 1px solid rgba(232, 93, 63, 0.3);
+  border-left: 4px solid #e85d3f;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateX(100px) scale(0.9);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.25);
+}
+body .toast.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+body .toast::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #e85d3f;
+  transform-origin: left;
+  animation: toast-progress 3s linear forwards;
+}
+@keyframes toast-progress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+@media (max-width: 480px) {
+  body .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 20px;
+  }
+  body .toast {
+    min-width: 0;
+    max-width: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .toast {
+    transition: none;
+  }
+  body .toast::after {
+    animation: none;
+  }
 }
 
 @media (max-width: 1024px) {

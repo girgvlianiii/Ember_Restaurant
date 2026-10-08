@@ -24,6 +24,13 @@ mobileLinks.forEach((link) => {
   });
 });
 
+
+const searchButton = document.querySelector(".header__icon");
+
+searchButton.addEventListener("click", () => {
+  window.location.href = "../menuPage/index.html";
+});
+
 function updateCartCount() {
   const cartCount = document.querySelector(".header__cart-count");
 

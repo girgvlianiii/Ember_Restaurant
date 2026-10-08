@@ -49,7 +49,6 @@ function renderCategories(categories) {
   });
 }
 
-// POPULAR PRODUCTS
 
 const popularProducts = document.querySelector(".popular__grid");
 
@@ -101,7 +100,6 @@ function renderProducts(products) {
   });
 }
 
-// MOBILE MENU
 
 const menuButton = document.querySelector(".header__menu");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -130,7 +128,6 @@ mobileLinks.forEach((link) => {
   });
 });
 
-// CART COUNT
 
 function updateCartCount() {
   const cartCount = document.querySelector(".header__cart-count");
@@ -162,3 +159,18 @@ function updateCartCount() {
 }
 
 updateCartCount();
+
+popularProducts.addEventListener("click", (e) => {
+  const addButton = e.target.closest(".product-card__add");
+
+  if (!addButton) return;
+
+  window.location.href = "./menuPage/index.html";
+});
+
+
+const searchButton = document.querySelector(".header__icon");
+
+searchButton.addEventListener("click", () => {
+  window.location.href = "./menuPage/index.html";
+});
