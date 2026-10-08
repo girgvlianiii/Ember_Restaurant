@@ -1,73 +1,70 @@
-# 🔥 EMBER.
+# 🔥 EMBER — Restaurant Website
 
-A modern responsive restaurant website built with **HTML, SCSS, and JavaScript**.
+**EMBER** is a modern, responsive restaurant website built with HTML, SCSS, and JavaScript. It features a dark-themed interface, dynamic product listings, user authentication, and an interactive shopping cart.
 
-EMBER is a frontend project focused on clean UI, responsive design, API integration, and a functional shopping cart experience.
+## 🚀 Features
 
-> 🚧 This project is currently a work in progress.
-
-## ✨ Features
-
-- Responsive design
-- Dynamic product rendering
-- Category filtering
+- Fully responsive design
+- Dynamic menu with category filtering
+- Real-time product search
+- User registration and login
+- User profile management
+- Shopping cart with quantity controls
+- Add-to-cart toast notifications
 - REST API integration
-- Shopping cart system
-- Quantity controls
-- Automatic subtotal and total calculation
-- Responsive navigation
-- Clean SCSS structure
+- Mobile-friendly navigation
 
-## 🛠️ Built With
+## 🛠️ Technologies Used
 
-- HTML5
-- SCSS
-- JavaScript
-- REST API
-- Font Awesome
+- **HTML5** — Page structure
+- **SCSS / CSS3** — Styling and responsiveness
+- **JavaScript (ES6+)** — Functionality and API requests
+- **REST API** — Products, categories, and basket data
+- **Font Awesome** — Icons
+- **Git & GitHub** — Version control
 
-## 📄 Pages
+### Homepage
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/d524cf70-3e1b-40a1-a892-b9acdd43b9d6" />
 
-- Home
-- Menu
-- About
-- Cart
-- Login
+### Menu
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/90aaad43-b647-469a-a433-69e6c4360eee" />
 
-## 🚀 Current Progress
+### About
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/569891ed-c33a-4c83-aa76-8709e529e8ca" />
 
-- [x] Homepage
-- [x] Menu page
-- [x] Category filtering
-- [x] About page
-- [x] Cart page
-- [x] Add/remove/update cart items
-- [x] Cart totals
-- [x] Responsive layout
-- [ ] Login page
-- [ ] Authentication integration
-- [ ] Final polishing
-- [ ] Deployment
+### Authentication
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/f2751ae9-7f9d-4ee6-a7d6-fb74f30844af" />
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/524366fc-f0fb-4767-840e-2b7a3cccae6a" />
 
-## 🎯 Purpose
+### Cart
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/1fe8bca5-821d-4475-8fe8-ea89eb7736ab" />
 
-This project was created to practice and improve my frontend development skills, especially:
 
-- Working with APIs
-- DOM manipulation
-- JavaScript logic
-- Responsive layouts
-- SCSS organization
-- Building a complete multi-page website
 
-## 📸 Preview
 
-Screenshots and live demo coming soon.
 
-## 👨‍💻 Author
 
-Built by Grigol.
+
+
+## 🌐 Live Demo
+
+Coming soon!
+
+## 🔗 API
+
+Restaurant API provided by [Step Projects](https://restaurant.stepprojects.ge/).
+
+## 💻 Run Locally
+
+1. Clone the repository.
+2. Open the project folder in VS Code.
+3. Compile the SCSS files into CSS.
+4. Open `index.html` with Live Server.
+
+## 📌 Project Status
+
+Version 1.0 — Final testing and deployment pending.
 
 ---
 
-⭐ If you like the project, feel free to leave a star.
+Built with ❤️ and JavaScript.
