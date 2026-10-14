@@ -48,7 +48,7 @@
 
 ## 🌐 Live Demo
 
-https://graceful-kashata-2b6a9b.netlify.app/
+https://ember-restaurantt.netlify.app/
 
 ## 🔗 API
 
